@@ -1,0 +1,28 @@
+{% extends 'base/master.html'%}
+{% block 'title' %}  Class Search {%  endblock %}
+{% block 'body' %}
+
+<div class="container">
+<div class="col-md-12">
+    <h4>Result:</h4>
+   {% for c in class %}
+    <div class="col-md-4">
+       <div class="box">
+           <h2 style="text-align:center;"><b>{{c.name}}</b></h2>
+            <hr/>
+           <h5>Section:{{c.section}}</h5>
+            <code>Class Code :{{c.code}}</code>
+           <hr/>
+          {% if c.id in class_id %}
+           <a href="#" class="btn btn-default" style="width:100%;">Already Joined</a>
+           {% else %}
+           <a href="{% url 'join' c.id %}" class="btn btn-primary" style="width:100%;">Join</a>
+           {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <br/>
+</div>
+</div>
+<br/>
+ {% endblock %}

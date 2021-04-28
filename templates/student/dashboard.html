@@ -1,0 +1,16 @@
+{% extends 'base/master.html'%}
+{% block 'title' %}  Student dashboard {%  endblock %}
+{% block 'body' %}
+
+<div class="container">
+<div class="col-md-12">
+    <h3>Welcome {{user.email}} to student dashboard</h3>
+    <form method="GET" action="{% url 'search' %}">
+        <div class="form-group" style="padding-right:60%;">
+            <input type="text" name="key" class="form-control" placeholder="Search for class">
+        </div>
+        {% csrf_token %}
+    </form>
+</div>
+</div>
+ {% endblock %}

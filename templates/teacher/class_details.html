@@ -1,0 +1,41 @@
+{% extends 'base/master.html'%}
+{% block 'title' %}  Class {%  endblock %}
+{% block 'body' %}
+
+<div class="container">
+
+   <div class="col-md-4">
+        <h3>{{class.name}}</h3>
+    <code>code: {{class.code}}</code>
+   <ul class="list-group">
+     {% for j in join %}
+       <li class="list-group-item">{{j.student.name}} {% if j.is_approved %} <a href="#" class="badge">Already Joined</a> {% else %}<a href="{% url 'join_accept' j.id %}" class="badge">Accept</a> {% endif %}</li>
+      {% endfor %}
+</ul>
+   </div>
+
+    <div class="col-md-8">
+        <h3>Stream</h3>
+        <div class="panel panel-primary" style="padding:50px 10px;">
+            <form method="post" enctype="multipart/form-data">
+                <textarea class="form-control" name="discussion" rows="10"></textarea>
+                <hr/>
+                <input type="file" name="file">
+                {% csrf_token %}
+                <button style="float:right;" type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+        {% for s in stream %}
+        <div class="panel panel-primary" style="padding:10px;">
+            {{s.discussion}}
+            <br/>
+            {% if s.file %}
+            <a href="{{MEDIA_URL}}{{s.file.url}}">{{s.file}}</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+ {% endblock %}

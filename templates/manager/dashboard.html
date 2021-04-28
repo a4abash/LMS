@@ -1,0 +1,33 @@
+{% extends 'base/master.html'%}
+{% block 'title' %}   I am Manager  {%  endblock %}
+{% block 'body' %}
+
+
+ <div class="container">
+
+     <div class="col-md-4" style="margin-top:20px; padding:30px;">
+
+         <h3>IIT Nepal</h3>
+
+         <div class="box">
+            <a href="{% url 'manager_view' %}"><h5><b>Dashboard</b><i class="fa fa-home" style="float: right;"></i> </h5></a>
+            <h5><b>Classes</b><i class="fa fa-institution" style="float: right;"></i> </h5>
+            <h5><b>Notices</b><i class="fa fa-bell" style="float: right;"></i> </h5>
+            <a href="{% url 'manager_stdview' %}"><h5><b>Students</b><i class="fa fa-graduation-cap" style="float: right;"></i> </h5></a>
+            <a href="{% url 'manager_teachview' %}"><h5><b>Teacher</b><i class="fa fa-male" style="float: right;"></i> </h5></a>
+            <h5><b>Administration</b><i class="fa fa-users" style="float: right;"></i> </h5>
+            <h5><b>Setting</b><i class="fa fa-cog" style="float: right;"></i> </h5>
+            <a href="{% url 'signout' %}"><h5><b>Logout</b><i class="fa fa-sign-out" style="float: right;"></i> </h5></a>
+         </div>
+
+     </div>
+
+     <div class="col-md-8" style="margin-top:20px; padding:30px;">
+         <h3>Manager Dashboard</h3>
+         <div class="box">
+             <h2>This is manager dashboard</h2>
+         </div>
+     </div>
+ </div>
+
+ {% endblock %}
