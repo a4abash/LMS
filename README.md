@@ -1,1 +1,1 @@
-LMS is a simple Learning Management System where teacher can teach students online and provide them the helpful materials
+LMS is a simple Learning Management System where teacher can teach students online and provide them the helpful materials and student can learn by joining the class created by teachers based upon the requirements and demand
